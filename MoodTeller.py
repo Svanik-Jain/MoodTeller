@@ -13,11 +13,11 @@ except sr.UnknownValueError:
 
 blob = TextBlob(saidText)
 for sentence in blob.sentences:
-    if(sentence.sentiment.polarity == 0):
+    if(sentence.sentiment.polarity == 0.0):
         print("You are in a neutral mood.")
-    elif(sentence.sentiment.polarity > 0):
+    elif(sentence.sentiment.polarity >= 0.05):
         print("You are in a good mood. I hope you have a nice day.")
-    elif(sentence.sentiment.polarity < 0):
+    elif(sentence.sentiment.polarity <= 0.05):
         print("You are in a bad mood. I hope your problems are solved.")
     else:
         print("Unable to guess")
